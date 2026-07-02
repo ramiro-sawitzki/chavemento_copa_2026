@@ -10,6 +10,9 @@
             --text-color: #ffffff;
             --gold: #ffd700;
             --gold-glow: rgba(255, 215, 0, 0.4);
+            --silver: #c0c0c0;
+            --bronze: #cd7f32;
+            --blue-gray: #414452;
             --line-default: #2a2c35;
             --line-active: #ffd700;
             --winner-green: #2ecc71;
@@ -37,7 +40,7 @@
         header {
             width: 100%;
             text-align: center;
-            padding: 25px 10px;
+            padding: 25px 10px 10px 10px;
         }
 
         header h1 {
@@ -57,6 +60,118 @@
             line-height: 1.4;
         }
 
+        /* Seção dos Artilheiros (Top 5) */
+        #top-scorers {
+            width: 95%;
+            max-width: 750px;
+            margin: 15px auto 25px auto;
+            text-align: center;
+        }
+
+        #top-scorers h2 {
+            font-size: 1rem;
+            color: #fff;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .scorers-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .scorer-card {
+            background: #16171e;
+            border-radius: 12px;
+            padding: 15px 8px 12px 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 115px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        .scorer-card.rank-1 { border-top: 4px solid var(--gold); transform: translateY(-10px); }
+        .scorer-card.rank-2 { border-top: 4px solid var(--silver); }
+        .scorer-card.rank-3 { border-top: 4px solid var(--bronze); }
+        .scorer-card.rank-4 { border-top: 4px solid var(--blue-gray); }
+        .scorer-card.rank-5 { border-top: 4px solid var(--blue-gray); }
+
+        .image-wrapper {
+            position: relative;
+            margin-bottom: 8px;
+        }
+
+        .scorer-photo {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: #2a2c35;
+        }
+
+        .scorer-card.rank-1 .scorer-photo { border: 2px solid var(--gold); width: 65px; height: 65px; }
+        .scorer-card.rank-2 .scorer-photo { border: 2px solid var(--silver); }
+        .scorer-card.rank-3 .scorer-photo { border: 2px solid var(--bronze); }
+        .scorer-card.rank-4 .scorer-photo { border: 2px solid var(--blue-gray); }
+        .scorer-card.rank-5 .scorer-photo { border: 2px solid var(--blue-gray); }
+
+        /* Mini bandeira sobreposta à foto */
+        .avatar-flag {
+            position: absolute;
+            bottom: 0;
+            right: -5px;
+            width: 18px;
+            height: 13px;
+            border-radius: 2px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.6);
+            object-fit: cover;
+        }
+
+        .scorer-name {
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-bottom: 3px;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 100%;
+        }
+
+        .scorer-goals {
+            font-size: 0.85rem;
+            font-weight: 900;
+        }
+
+        .scorer-card.rank-1 .scorer-goals { color: var(--gold); }
+        .scorer-card.rank-2 .scorer-goals { color: var(--silver); }
+        .scorer-card.rank-3 .scorer-goals { color: var(--bronze); }
+        .scorer-card.rank-4 .scorer-goals { color: #a0a4b8; }
+        .scorer-card.rank-5 .scorer-goals { color: #a0a4b8; }
+
+        .medal-icon {
+            position: absolute;
+            top: -10px;
+            background: var(--bg-color);
+            border-radius: 50%;
+            width: 22px;
+            height: 22px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.75rem;
+            border: 1px solid #2a2c35;
+            font-weight: bold;
+        }
+
+        /* Bracket Canvas */
         #canvas-container {
             width: 95vmin;
             height: 95vmin;
@@ -187,6 +302,70 @@
         <p>Acompanhe o chaveamento oficial interativo. Toque nas bandeiras para projetar o campeão da Copa!</p>
     </header>
 
+    <!-- SEÇÃO: Artilheiros (Design c/ Proxy de Imagem wsrv.nl para evitar bloqueios CORS/Hotlinking) -->
+    <section id="top-scorers">
+        <h2>⚽ Artilheiros da Copa</h2>
+        <div class="scorers-container">
+            
+            <!-- 2º Lugar: Mbappé -->
+            <div class="scorer-card rank-2">
+                <div class="medal-icon">2º</div>
+                <div class="image-wrapper">
+                    <!-- Proxy wsrv.nl evita o bloqueio da Wikimedia -->
+                    <img src="https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F5%2F57%2FKylian_Mbapp%25C3%25A9_Compartilhado_via_Televis%25C3%25A3o_Brasil_2018.jpg%2F220px-Kylian_Mbapp%25C3%25A9_Compartilhado_via_Televis%25C3%25A3o_Brasil_2018.jpg" class="scorer-photo" alt="Mbappé">
+                    <img src="https://flagcdn.com/w40/fr.png" class="avatar-flag" alt="França">
+                </div>
+                <div class="scorer-name">Mbappé</div>
+                <div class="scorer-goals">6 Gols</div>
+            </div>
+
+            <!-- 1º Lugar: Messi -->
+            <div class="scorer-card rank-1">
+                <div class="medal-icon">1º</div>
+                <div class="image-wrapper">
+                    <img src="https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fc%2Fc1%2FLionel_Messi_20180626.jpg%2F220px-Lionel_Messi_20180626.jpg" class="scorer-photo" alt="Messi">
+                    <img src="https://flagcdn.com/w40/ar.png" class="avatar-flag" alt="Argentina">
+                </div>
+                <div class="scorer-name">Messi</div>
+                <div class="scorer-goals">6 Gols</div>
+            </div>
+
+            <!-- 3º Lugar: Haaland -->
+            <div class="scorer-card rank-3">
+                <div class="medal-icon">3º</div>
+                <div class="image-wrapper">
+                    <img src="https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F0%2F07%2FErling_Haaland_2023.jpg%2F220px-Erling_Haaland_2023.jpg" class="scorer-photo" alt="Haaland">
+                    <img src="https://flagcdn.com/w40/no.png" class="avatar-flag" alt="Noruega">
+                </div>
+                <div class="scorer-name">Haaland</div>
+                <div class="scorer-goals">5 Gols</div>
+            </div>
+
+            <!-- 4º Lugar: Harry Kane -->
+            <div class="scorer-card rank-4">
+                <div class="medal-icon">4º</div>
+                <div class="image-wrapper">
+                    <img src="https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F5%2F5e%2FHarry_Kane_2018.jpg%2F220px-Harry_Kane_2018.jpg" class="scorer-photo" alt="Harry Kane">
+                    <img src="https://flagcdn.com/w40/gb-eng.png" class="avatar-flag" alt="Inglaterra">
+                </div>
+                <div class="scorer-name">Harry Kane</div>
+                <div class="scorer-goals">5 Gols</div>
+            </div>
+
+            <!-- 5º Lugar: Vini Jr -->
+            <div class="scorer-card rank-5">
+                <div class="medal-icon">5º</div>
+                <div class="image-wrapper">
+                    <img src="https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Ff%2Ff3%2FVinicius_Jr_2021.jpg%2F220px-Vinicius_Jr_2021.jpg" class="scorer-photo" alt="Vini Jr">
+                    <img src="https://flagcdn.com/w40/br.png" class="avatar-flag" alt="Brasil">
+                </div>
+                <div class="scorer-name">Vini Jr</div>
+                <div class="scorer-goals">4 Gols</div>
+            </div>
+
+        </div>
+    </section>
+
     <div id="canvas-container">
         <svg id="bracket-svg" viewBox="0 0 1000 1000"></svg>
     </div>
@@ -301,7 +480,7 @@
         phase1[1] = initialTeams[3]; // PAR
         phase1[2] = initialTeams[5]; // CAN
         phase1[3] = initialTeams[7]; // MAR
-        phase1[6] = initialTeams[12]; // EUA venceu a Bosnia!
+        phase1[6] = initialTeams[12]; // EUA 
         phase1[7] = initialTeams[14]; // BEL
         phase1[12] = initialTeams[24]; // ING
         phase1[13] = initialTeams[26]; // MEX
