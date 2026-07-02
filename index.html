@@ -113,16 +113,17 @@
             height: 55px;
             border-radius: 50%;
             object-fit: cover;
+            object-position: center 15%; /* ESSENCIAL PARA CENTRALIZAR O ROSTO */
             background: #2a2c35;
+            display: block;
         }
 
-        .scorer-card.rank-1 .scorer-photo { border: 2px solid var(--gold); width: 65px; height: 65px; }
+        .scorer-card.rank-1 .scorer-photo { border: 2px solid var(--gold); width: 65px; height: 65px; object-position: center 10%; }
         .scorer-card.rank-2 .scorer-photo { border: 2px solid var(--silver); }
         .scorer-card.rank-3 .scorer-photo { border: 2px solid var(--bronze); }
         .scorer-card.rank-4 .scorer-photo { border: 2px solid var(--blue-gray); }
         .scorer-card.rank-5 .scorer-photo { border: 2px solid var(--blue-gray); }
 
-        /* Mini bandeira sobreposta à foto */
         .avatar-flag {
             position: absolute;
             bottom: 0;
@@ -171,7 +172,6 @@
             font-weight: bold;
         }
 
-        /* Bracket Canvas */
         #canvas-container {
             width: 95vmin;
             height: 95vmin;
@@ -302,7 +302,7 @@
         <p>Acompanhe o chaveamento oficial interativo. Toque nas bandeiras para projetar o campeão da Copa!</p>
     </header>
 
-    <!-- SEÇÃO: Artilheiros (Design c/ Proxy de Imagem wsrv.nl para evitar bloqueios CORS/Hotlinking) -->
+    <!-- SEÇÃO: Artilheiros (Imagens Locais - A forma correta e infalível) -->
     <section id="top-scorers">
         <h2>⚽ Artilheiros da Copa</h2>
         <div class="scorers-container">
@@ -311,8 +311,8 @@
             <div class="scorer-card rank-2">
                 <div class="medal-icon">2º</div>
                 <div class="image-wrapper">
-                    <!-- Proxy wsrv.nl evita o bloqueio da Wikimedia -->
-                    <img src="https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F5%2F57%2FKylian_Mbapp%25C3%25A9_Compartilhado_via_Televis%25C3%25A3o_Brasil_2018.jpg%2F220px-Kylian_Mbapp%25C3%25A9_Compartilhado_via_Televis%25C3%25A3o_Brasil_2018.jpg" class="scorer-photo" alt="Mbappé">
+                    <!-- USE IMAGEM LOCAL (ex: mbappe.jpg) e centralização garantida via CSS -->
+                    <img src="mbappe.jpg" class="scorer-photo" alt="Mbappé" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Kylian+Mbappe&background=c0c0c0&color=000';">
                     <img src="https://flagcdn.com/w40/fr.png" class="avatar-flag" alt="França">
                 </div>
                 <div class="scorer-name">Mbappé</div>
@@ -323,7 +323,7 @@
             <div class="scorer-card rank-1">
                 <div class="medal-icon">1º</div>
                 <div class="image-wrapper">
-                    <img src="https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fc%2Fc1%2FLionel_Messi_20180626.jpg%2F220px-Lionel_Messi_20180626.jpg" class="scorer-photo" alt="Messi">
+                    <img src="messi.jpg" class="scorer-photo" alt="Messi" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Lionel+Messi&background=ffd700&color=000';">
                     <img src="https://flagcdn.com/w40/ar.png" class="avatar-flag" alt="Argentina">
                 </div>
                 <div class="scorer-name">Messi</div>
@@ -334,7 +334,7 @@
             <div class="scorer-card rank-3">
                 <div class="medal-icon">3º</div>
                 <div class="image-wrapper">
-                    <img src="https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F0%2F07%2FErling_Haaland_2023.jpg%2F220px-Erling_Haaland_2023.jpg" class="scorer-photo" alt="Haaland">
+                    <img src="haaland.jpg" class="scorer-photo" alt="Haaland" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Erling+Haaland&background=cd7f32&color=fff';">
                     <img src="https://flagcdn.com/w40/no.png" class="avatar-flag" alt="Noruega">
                 </div>
                 <div class="scorer-name">Haaland</div>
@@ -345,7 +345,7 @@
             <div class="scorer-card rank-4">
                 <div class="medal-icon">4º</div>
                 <div class="image-wrapper">
-                    <img src="https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F5%2F5e%2FHarry_Kane_2018.jpg%2F220px-Harry_Kane_2018.jpg" class="scorer-photo" alt="Harry Kane">
+                    <img src="kane.jpg" class="scorer-photo" alt="Harry Kane" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Harry+Kane&background=414452&color=fff';">
                     <img src="https://flagcdn.com/w40/gb-eng.png" class="avatar-flag" alt="Inglaterra">
                 </div>
                 <div class="scorer-name">Harry Kane</div>
@@ -356,7 +356,7 @@
             <div class="scorer-card rank-5">
                 <div class="medal-icon">5º</div>
                 <div class="image-wrapper">
-                    <img src="https://wsrv.nl/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Ff%2Ff3%2FVinicius_Jr_2021.jpg%2F220px-Vinicius_Jr_2021.jpg" class="scorer-photo" alt="Vini Jr">
+                    <img src="vini.jpg" class="scorer-photo" alt="Vini Jr" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Vini+Jr&background=414452&color=fff';">
                     <img src="https://flagcdn.com/w40/br.png" class="avatar-flag" alt="Brasil">
                 </div>
                 <div class="scorer-name">Vini Jr</div>
