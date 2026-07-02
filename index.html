@@ -197,6 +197,7 @@
         <!-- Resultados Confirmados (16-avos) -->
         <div class="match-day">
             <h3 class="confirmed-title">✅ Resultados Confirmados (16-avos)</h3>
+            <div class="match-item"><div class="match-time">ENC</div><div class="match-teams"><img src="https://flagcdn.com/w40/us.png" class="flag-icon"> <b>EUA 2</b> <span class="vs">vs</span> 0 BOS <img src="https://flagcdn.com/w40/ba.png" class="flag-icon"></div></div>
             <div class="match-item"><div class="match-time">ENC</div><div class="match-teams"><img src="https://flagcdn.com/w40/gb-eng.png" class="flag-icon"> <b>ING 2</b> <span class="vs">vs</span> 1 RDC <img src="https://flagcdn.com/w40/cd.png" class="flag-icon"></div></div>
             <div class="match-item"><div class="match-time">ENC</div><div class="match-teams"><img src="https://flagcdn.com/w40/be.png" class="flag-icon"> <b>BEL 3</b> <span class="vs">vs</span> 2 SEN <img src="https://flagcdn.com/w40/sn.png" class="flag-icon"></div></div>
             <div class="match-item"><div class="match-time">ENC</div><div class="match-teams"><img src="https://flagcdn.com/w40/fr.png" class="flag-icon"> <b>FRA 3</b> <span class="vs">vs</span> 0 SUE <img src="https://flagcdn.com/w40/se.png" class="flag-icon"></div></div>
@@ -211,10 +212,6 @@
         <!-- Próximos Jogos (Restantes dos 16-avos) -->
         <div class="match-day">
             <h3>⏳ Próximos Jogos (16-avos)</h3>
-            <div class="match-item">
-                <div class="match-time">01/07 21:00</div>
-                <div class="match-teams"><img src="https://flagcdn.com/w40/us.png" class="flag-icon"> EUA <span class="vs">VS</span> BOS <img src="https://flagcdn.com/w40/ba.png" class="flag-icon"></div>
-            </div>
             <div class="match-item">
                 <div class="match-time">02/07 16:00</div>
                 <div class="match-teams"><img src="https://flagcdn.com/w40/es.png" class="flag-icon"> ESP <span class="vs">VS</span> AUT <img src="https://flagcdn.com/w40/at.png" class="flag-icon"></div>
@@ -241,7 +238,7 @@
             </div>
         </div>
 
-        <!-- NOVO: Próximos Jogos - Oitavas de Final (Adicionados ao final da lista) -->
+        <!-- Próximos Jogos - Oitavas de Final -->
         <div class="match-day">
             <h3 class="r16-title">🔵 Calendário Definido - Oitavas de Final</h3>
             <div class="match-item">
@@ -266,7 +263,7 @@
             </div>
             <div class="match-item">
                 <div class="match-time">06/07 21:00</div>
-                <div class="match-teams"><span style="color: #8b8e9f;">EUA / BOS</span> <span class="vs">VS</span> <img src="https://flagcdn.com/w40/be.png" class="flag-icon"> BEL</div>
+                <div class="match-teams"><img src="https://flagcdn.com/w40/us.png" class="flag-icon"> EUA <span class="vs">VS</span> <img src="https://flagcdn.com/w40/be.png" class="flag-icon"> BEL</div>
             </div>
             <div class="match-item">
                 <div class="match-time">07/07 13:00</div>
@@ -304,6 +301,7 @@
         phase1[1] = initialTeams[3]; // PAR
         phase1[2] = initialTeams[5]; // CAN
         phase1[3] = initialTeams[7]; // MAR
+        phase1[6] = initialTeams[12]; // EUA venceu a Bosnia!
         phase1[7] = initialTeams[14]; // BEL
         phase1[12] = initialTeams[24]; // ING
         phase1[13] = initialTeams[26]; // MEX
@@ -348,7 +346,7 @@
             if (!currentTeam || ring === 5) return;
 
             if (ring === 0) {
-                const lockedIndexes = [0, 1, 2, 3, 4, 5, 6, 7, 14, 15, 24, 25, 26, 27, 28, 29, 30, 31];
+                const lockedIndexes = [0, 1, 2, 3, 4, 5, 6, 7, 12, 13, 14, 15, 24, 25, 26, 27, 28, 29, 30, 31];
                 if (lockedIndexes.includes(index)) return; 
             }
 
